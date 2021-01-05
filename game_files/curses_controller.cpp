@@ -35,10 +35,6 @@ Command CursesController::getInput()
     }
     else
         return Command::Invalid;
-    // TODO: Implement.
-    // Don't forget about the arrow keys.
-
-    // To prevent a compiler error in the starter files...
     return Command::Invalid;
 }
 
