@@ -2,9 +2,6 @@
 
 #include <iostream>
 
-/**
- * The constructor and destructor shouldn't need anything added.
- */
 
 PrintView::PrintView(int height, int width)
     : View(height, width)
@@ -24,5 +21,4 @@ void PrintView::draw(const std::vector<std::string>& lines)
         std::cout << std::endl;
     }
 
-    // TODO: Implement.
 }
