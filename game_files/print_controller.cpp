@@ -8,7 +8,7 @@ PrintController::~PrintController()
 
 Command PrintController::getInput()
 {
-    // TODO: Implement.
+   
     char c;
     std::cin >> c;
     if(c == 'w')
