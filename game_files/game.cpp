@@ -149,11 +149,8 @@ Game::Game(const std::string& filename, InterfaceType interfaceType)
 
 Game::~Game()
 {
-    // TODO: Usually, deallocate anything that was dynamically
     free(mView);
     free(mController);
-    // allocated in the ctor (constructor).
-    
 }
 
 void Game::run() {
@@ -454,40 +451,18 @@ std::vector<std::string> Game::draw(MapSegment& map) {
     for(int i=0; i<=top_view+bot_view; i++)
         for(int j=0; j<=right_view + left_view; j++) {
             if(centery - top_view + i >= screen_height || centerx - left_view + j > screen_width )
-                break;
-            //printf("GameMap[%d][%d] = map[%d][%d]\n", centery-top_view+i,centerx - left_view + j,posy - top_view + i,posx - left_view + j);
-           // printf("\n");
-            GameMap[centery - top_view + i][centerx - left_view + j] = map.getAsLines()[posy - top_view + i][posx - left_view + j];
-            //std::cout << "character getting copied : " << map.getAsLines()[posy - top_view + i][posx - left_view + j] << std::endl;
+                break;        
+            GameMap[centery - top_view + i][centerx - left_view + j] = map.getAsLines()[posy - top_view + i][posx - left_view + j];        
             map.getAsLines();
         }
-    //std::cerr << "heyo";
-    //std::cout << "hi";
 
     if(direction == 2) GameMap[centery][centerx] = HERO_ICON_DOWN;
     else if(direction == 0) GameMap[centery][centerx] = HERO_ICON_UP;
     if(direction == 1) GameMap[centery][centerx] = HERO_ICON_RIGHT;
     if(direction == 3) GameMap[centery][centerx] = HERO_ICON_LEFT;
-    //std::cout << "MAP" <<std::endl;
-    /*for(int i=0; i<map.getHeight();i++) {
-        for (int j = 0; j < map.getWidth(); j++)
-            std::cout << map.getAsLines()[i][j];
-        std::cout << std::endl;
-    }*/
-    //std::cout << "GAME MAP AFTER" <<std::endl;
-    //mView->draw(GameMap);
-    //std::cout << "posy: " << posy <<std::endl;
-    //std::cout << "posx: " << posx <<std::endl;
-    //std::cout << "top: " << top_view <<std::endl;
-    //std::cout << "bot: " << bot_view <<std::endl;
-    //std::cout << "right: " << right_view <<std::endl;
-    //std::cout << "left: " << left_view <<std::endl;
-
-
-
+    
     std::string temp3;
     std::vector<std::string> realMap;
-    //const std::string& pt = temp3;
     for(int i=0; i<screen_width+2;i++)
         temp3.push_back('*');
     for(int i=0; i<screen_height+2; i++)
@@ -501,7 +476,7 @@ std::vector<std::string> Game::draw(MapSegment& map) {
 }
 
 int Game::noCollision( MapSegment& map) {
-    //returns true if moving forward will not result in collision, false otherwsie
+    
     char infront;
     if(direction == 0)
         infront = map.getAsLines()[posy-1][posx];
