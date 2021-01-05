@@ -6,10 +6,8 @@ enum class Command
     // Changing how player is facing.
     Left,
     Right,
-
     // Movement.
     Forward,
-
     Quit,
     Invalid
 };
