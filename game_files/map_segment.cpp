@@ -19,16 +19,10 @@ Portal::Portal(int start_map, int end_map, int start_dir, int end_dir)
 }
 bool MapSegment::deleteItem(int ypos, int xpos) {
     int i = 0;
-    //std::cout << "TRYING TO DELETE ITEMS" <<std::endl;
-    for(auto item : Item_List){
-        //std::cout<< "comparing our posy: " << ypos << " posx:  " << xpos << std::endl;
-        //std::cout << "to item posy: " << item.getY() << " item posx: " <<item.getX() << std::endl;
-        if (item.getY() == ypos && item.getX() == xpos) {
-            //std::cout << "we should delete this item" << std::endl;
-            //std::cout << "size of itemlist before delete: " << Item_List.size();
+    for(auto item : Item_List){        
+        if (item.getY() == ypos && item.getX() == xpos) {          
             Item_List.erase(Item_List.begin() + i );
-            return true;
-            //std::cout << "size of itemlist now: " << Item_List.size();
+            return true;            
         }
         i++;
     }
@@ -37,25 +31,11 @@ bool MapSegment::deleteItem(int ypos, int xpos) {
 
 std::vector<std::string> MapSegment::getAsLines() {
     std::vector<std::string> Map;
-    std::string temp;
-    //std::cout << "SHOULD BE A " << mHeight << " by " << mWidth << std::endl;
+    std::string temp;    
     for(int i= 0; i < mWidth; i++)
-        temp.push_back(' ');
-    //std::cout << "this is temp : " << temp << " size of " << temp.size()<< std::endl;
-    /*Map.push_back(temp);
-    Map.push_back(temp);
-    Map.push_back(temp);
-    std::cout << Map[0] << std::endl;
-    std::cout << Map[1] << std::endl;
-    std::cout << Map[2] << std::endl;*/
+        temp.push_back(' ');    
     for(int j=0; j<mHeight; j++)
         Map.push_back(temp);
-
-    /*for (int i = 0; i < mHeight; i++) {
-        for (int j = 0; j < mWidth; j++)
-            std::cout << Map[i][j];
-        std::cout << std::endl;
-    }*/
 
     for(int row = 0; row < mHeight; row++) {
         for (int column = 0; column < mWidth; column++){
