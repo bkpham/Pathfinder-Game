@@ -4,11 +4,6 @@
 #include <curses.h>
 #include "view.hpp"
 
-/**
- * You shouldn't have to change this header file.
- * Implement the functions defined in the source file.
- */
-
 class CursesView : public View
 {
 public:  // public methods
